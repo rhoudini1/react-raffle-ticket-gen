@@ -1,7 +1,9 @@
+import RafflePrintPage from "./pages/raffle-generate.tsx";
+
 function App() {
   return (
     <>
-      <p>Hello</p>
+      <RafflePrintPage />
     </>
   );
 }
