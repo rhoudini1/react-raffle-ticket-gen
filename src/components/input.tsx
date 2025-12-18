@@ -1,10 +1,9 @@
 import React from "react";
 
-interface FormInputProps {
+interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  type?: React.HTMLInputTypeAttribute;
-  placeholder?: string;
   hideLabel?: boolean;
+  className?: string;
 }
 
 export default function FormInput({
@@ -12,6 +11,8 @@ export default function FormInput({
   type = "text",
   placeholder,
   hideLabel = false,
+  className,
+  ...props
 }: FormInputProps) {
   return (
     <div className="space-y-2 w-full">
@@ -24,14 +25,16 @@ export default function FormInput({
       <input
         type={type}
         placeholder={placeholder}
-        className="
+        className={`
           w-full rounded-md px-4 py-2
           border border-(--color-gray-300)
           text-(--color-gray-900)
           focus:outline-none
           focus:ring-2 focus:ring-(--color-primary-light)
           focus:border-(--color-primary-base)
-        "
+          ${className}
+        `}
+        {...props}
       />
     </div>
   );
