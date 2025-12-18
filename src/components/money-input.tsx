@@ -1,12 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import FormInput from "./input.tsx";
 import { formatBRLFromCents, parseBRLToCents } from "../helpers/money.ts";
 
-type MoneyInputProps = {
+interface MoneyInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   value?: number; // em centavos
-  onChange?: (valueInCents: number) => void;
-};
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
 export default function MoneyInput({
   label,
@@ -19,10 +19,22 @@ export default function MoneyInput({
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const rawValue = e.target.value;
     const cents = parseBRLToCents(rawValue);
+    const formatted = formatBRLFromCents(cents);
 
-    setDisplayValue(formatBRLFromCents(cents));
-    onChange?.(cents);
+    setDisplayValue(formatted);
     setCents(cents);
+
+    if (onChange) {
+      const syntheticEvent = {
+        ...e,
+        target: {
+          ...e.target,
+          value: formatted,
+        },
+      } as React.ChangeEvent<HTMLInputElement>;
+
+      onChange(syntheticEvent);
+    }
   }
 
   return (
