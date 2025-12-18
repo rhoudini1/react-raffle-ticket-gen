@@ -12,17 +12,17 @@ interface RaffleTicketProps {
 export default function RaffleTicket({
   title,
   ticketNumber,
-  target = "Objetivo da rifa",
-  prize = "Premiação",
-  ticketValue = "R$ 0,00",
-  date = "01/01/2025",
-  time = "00:00",
-  location = "Local do sorteio",
+  target,
+  prize,
+  ticketValue,
+  date,
+  time,
+  location,
 }: RaffleTicketProps) {
   return (
     <div
       className="
-        w-170 border border-(--color-gray-300)
+        border border-(--color-gray-300)
         rounded-md flex overflow-hidden bg-white
         text-(--color-gray-900) font-arial
       "
