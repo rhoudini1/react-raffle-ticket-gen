@@ -2,16 +2,18 @@
 
 @theme {
   --color-*: initial;
+
   /* Base */
   --color-white: #efece3;
   --color-black: #000000;
+
   /* Grays / Neutrals */
   --color-gray-100: #efece3;
   --color-gray-300: #8fabd4;
   --color-gray-500: #4a70a9;
   --color-gray-900: #000000;
 
-  /* Primary (azul) */
+  /* Primary */
   --color-primary-light: #8fabd4;
   --color-primary-base: #4a70a9;
   --color-primary-dark: #000000;
@@ -22,26 +24,4 @@
 
   /* Shadows */
   --shadow-sm: 0px 4px 8px rgba(0, 0, 0, 0.08);
-}
-
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Base da aplicação */
-html,
-body,
-#root {
-  height: 100%;
-}
-
-body {
-  font-family: var(--font-sans);
-  background-color: var(--color-white);
-  color: var(--color-black);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
